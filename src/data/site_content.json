@@ -1,14 +1,14 @@
 {
-  "name": "ОСББ \"Синевирій\"",
-  "address": "02140, Київ, вулиця Бориса Гмирі, будинок 777",
-  "email": "sin@ukr.net",
-  "phones": "044 000 11 22, 067 000 11 22",
   "phone_emergency": "044 587 86 40",
-  "phone_elevator": "044 573 17 48",
+  "phones": "044 000 11 22, 067 000 11 22",
+  "name": "ОСББ \"Синевирій\"",
+  "stat_apartments": "590",
+  "address": "02140, Київ, вулиця Бориса Гмирі, будинок 777",
   "schedule": "Графік роботи: Пн – Пт з 09:00 до 18:00, перерва з 13:00 до 14:00",
-  "viber_group": "Актив Гмирі 777",
-  "foundation_date": "24 серпня 2024 року",
+  "stat_residents": "1100",
   "stat_area": "13540",
-  "stat_residents": "650",
-  "stat_apartments": "294"
+  "foundation_date": "24 серпня 2024 року",
+  "viber_group": "Актив Гмирі 777",
+  "email": "sin@ukr.net",
+  "phone_elevator": "044 573 17 48"
 }
