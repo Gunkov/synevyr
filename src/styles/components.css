@@ -267,6 +267,17 @@
   font-weight: bold;
 }
 
+.icon-list a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.icon-list a:hover {
+  color: var(--c-accent, #e76f51);
+  text-decoration: underline;
+}
+
 .icon-list .icon-label strong {
   color: #fff;
 }

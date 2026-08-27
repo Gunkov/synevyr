@@ -204,10 +204,19 @@ export const CONTACTS = {
   scheduleText: siteSchedule,
   items: [
     { icon: 'map-marker-alt', html: `<strong>${siteAddress}</strong>` },
-    { icon: 'envelope', html: `<strong>${siteEmail}</strong>` },
-    { icon: 'phone-alt', html: `<strong> ${sitePhones}</strong>` },
-    { icon: 'phone-alt', html: `<strong>${siteEmergency} – Аварійна служба</strong>` },
-    { icon: 'phone-alt', html: `<strong>${siteElevator} – Ліфтова служба</strong>` },
+    { icon: 'envelope', html: `<strong><a href="mailto:${siteEmail}">${siteEmail}</a></strong>` },
+    {
+      icon: 'phone-alt',
+      html: `<strong><a href="tel:+380440001122">044 000 11 22</a></strong>, <strong><a href="tel:+380670001122">067 000 11 22</a></strong>`,
+    },
+    {
+      icon: 'phone-alt',
+      html: `<strong><a href="tel:+380445878640">${siteEmergency}</a> – Аварійна служба</strong>`,
+    },
+    {
+      icon: 'phone-alt',
+      html: `<strong><a href="tel:+380445731748">${siteElevator}</a> – Ліфтова служба</strong>`,
+    },
   ],
   mapSrc: `https://www.google.com/maps?q=${encodeURIComponent(siteAddress)}&hl=uk&z=15&output=embed`,
   mapHeight: 248,
