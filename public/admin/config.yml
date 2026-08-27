@@ -1,8 +1,7 @@
 backend:
   name: github
-  repo: Gunkov/synevyr # репозиторій на GitHub
+  repo: Gunkov/synevyr
   branch: main
-  auth_type: pkce # Авторизація без бекенду через GitHub OAuth PKCE
 
 # Папка для завантаження зображень
 media_folder: "public/img"
