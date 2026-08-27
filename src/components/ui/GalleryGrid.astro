@@ -1,0 +1,15 @@
+---
+import { GALLERY } from '../../data/content';
+---
+
+<ul class="gallery-grid">
+  {
+    GALLERY.map((img) => (
+      <li class="gallery-item">
+        <figure>
+          <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" />
+        </figure>
+      </li>
+    ))
+  }
+</ul>

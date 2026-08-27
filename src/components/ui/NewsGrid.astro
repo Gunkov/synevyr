@@ -1,0 +1,22 @@
+---
+import type { NewsItem } from '../../data/news';
+
+interface Props {
+  items: NewsItem[];
+}
+const { items } = Astro.props;
+---
+
+<ul class="rss-grid">
+  {
+    items.map((item) => (
+      <li class="rss-item">
+        <div class="rss-title">
+          <a href={item.link}>{item.title}</a>
+        </div>
+        <time class="rss-date">{item.date}</time>
+        <div class="rss-excerpt">{item.excerpt}</div>
+      </li>
+    ))
+  }
+</ul>

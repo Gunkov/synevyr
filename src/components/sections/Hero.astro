@@ -1,0 +1,13 @@
+---
+import { HERO } from '../../data/content';
+---
+
+<section class="sec-hero">
+  <div class="inner">
+    <figure class="hero-figure">
+      <img src={HERO.image} alt={HERO.alt} width="1200" height="540" loading="eager" fetchpriority="high" />
+    </figure>
+    <div class="hero-spacer"></div>
+    {HERO.caption ? <p class="hero-caption"><em>{HERO.caption}</em></p> : null}
+  </div>
+</section>

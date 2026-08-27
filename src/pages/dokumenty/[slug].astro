@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ALL_DOCS, type DocItem } from '../../data/docs';
+
+export async function getStaticPaths() {
+  return ALL_DOCS.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+interface Props {
+  item: DocItem;
+}
+
+const { item } = Astro.props;
+---
+
+<BaseLayout title={`${item.title} | ОСББ «Синевирій»`} description={item.description}>
+  <section class="sec-doc-page">
+    <div class="inner">
+      <div class="doc-card-page card-white">
+        <div class="doc-top-nav">
+          <a href="/#dokumenty" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="14" height="14" aria-hidden="true" focusable="false" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+              <path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"/>
+            </svg>
+            Назад до розділу «Документи»
+          </a>
+
+          <button type="button" class="btn-print" onclick="window.print()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" aria-hidden="true" focusable="false" style="display:inline-block;vertical-align:middle;margin-right:6px;">
+              <path fill="currentColor" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H384v96h64V64c0-35.3-28.7-64-64-64H128zM384 448H128V320H384V448zm64-224c17.7 0 32 14.3 32 32s-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32zM64 224c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64h32v32c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V480h32c35.3 0 64-28.7 64-64V288c0-35.3-28.7-64-64-64H64z"/>
+            </svg>
+            Роздрукувати документ
+          </button>
+        </div>
+
+        <header class="doc-header">
+          <span class="doc-category-badge">{item.category}</span>
+          {item.date && <time class="doc-date">Затверджено: {item.date}</time>}
+          <h1 class="doc-title-main">{item.title}</h1>
+          <div class="doc-sep"></div>
+        </header>
+
+        <div class="doc-body" set:html={item.contentHtml} />
+
+        <div class="doc-bottom-nav">
+          <a href="/#dokumenty" class="btn-pill">← Назад до документів</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .sec-doc-page {
+    padding: 50px 20px 80px;
+    background-color: var(--c-page-bg, #ebebeb);
+    min-height: calc(100vh - 200px);
+  }
+
+  .doc-card-page {
+    max-width: var(--w-inner, 1185px);
+    margin: 0 auto;
+    padding: 40px 50px 60px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .doc-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--c-brand, #2b6cb0);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--c-accent, #e76f51);
+    text-decoration: underline;
+  }
+
+  .btn-print {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f4f8fb;
+    border: 1px solid #e2edf5;
+    color: #444;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-print:hover {
+    background-color: #eaf2ee;
+    border-color: var(--c-brand, #2b6cb0);
+    color: var(--c-brand, #2b6cb0);
+  }
+
+  .doc-category-badge {
+    display: inline-block;
+    background: rgba(43, 108, 176, 0.1);
+    color: var(--c-brand, #2b6cb0);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .doc-date {
+    display: block;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .doc-title-main {
+    font-size: 30px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: var(--c-teal, #1e4e8c);
+    margin: 0 0 20px;
+  }
+
+  .doc-sep {
+    border-top: 4px solid var(--c-green, #38a169);
+    width: 100%;
+    margin: 0 0 35px;
+  }
+
+  .doc-body {
+    color: rgba(1, 22, 39, 0.85);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .doc-body :global(p) {
+    margin: 0 0 1.25em;
+  }
+
+  .doc-body :global(h2) {
+    color: var(--c-teal, #1e4e8c);
+    font-size: 22px;
+    margin: 1.8em 0 0.8em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+  }
+
+  .doc-body :global(h3) {
+    color: var(--c-teal, #1e4e8c);
+    font-size: 18px;
+    margin: 1.4em 0 0.6em;
+  }
+
+  .doc-body :global(ul),
+  .doc-body :global(ol) {
+    margin: 0 0 1.25em 1.5em;
+    padding: 0;
+  }
+
+  .doc-body :global(li) {
+    margin-bottom: 0.5em;
+  }
+
+  .doc-body :global(blockquote) {
+    border-left: 4px solid var(--c-brand, #2b6cb0);
+    padding: 1em 1.25em;
+    margin: 1.5em 0;
+    background: #f8fafc;
+    border-radius: 0 6px 6px 0;
+    color: #333;
+  }
+
+  .doc-bottom-nav {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+  }
+
+  @media print {
+    .site-header,
+    .site-footer,
+    .doc-top-nav,
+    .doc-bottom-nav,
+    #scroll-top {
+      display: none !important;
+    }
+
+    .sec-doc-page {
+      padding: 0;
+      background: #fff;
+    }
+
+    .doc-card-page {
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .sec-doc-page {
+      padding: 25px 12px 50px;
+    }
+
+    .doc-card-page {
+      padding: 25px 20px 40px;
+    }
+
+    .doc-title-main {
+      font-size: 23px;
+    }
+
+    .doc-body {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+  }
+</style>

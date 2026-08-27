@@ -1,0 +1,41 @@
+---
+import Icon from './Icon.astro';
+import { MENU, SITE } from '../data/content';
+---
+
+<header class="site-header">
+  <div class="main-header-bar-wrap">
+    <div id="header-spacer"></div>
+    <div class="main-header-bar" id="main-header-bar">
+      <div class="container header-container">
+        <div class="site-branding">
+          <div class="site-identity">
+            <h1 class="site-title"><a href="/" rel="home">{SITE.name}</a></h1>
+          </div>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-controls="primary-menu"
+          aria-expanded="false"
+          aria-label="Головне меню"
+        >
+          <Icon name="bars" className="toggle-icon icon-bars" />
+          <Icon name="times" className="toggle-icon icon-close" />
+        </button>
+        <nav class="main-navigation" id="primary-menu" aria-label="Навігація по сайту">
+          <ul class="main-menu">
+            {
+              MENU.map((item) => (
+                <li class="menu-item">
+                  <a class="menu-link" href={item.href}>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

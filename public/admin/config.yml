@@ -1,0 +1,77 @@
+backend:
+  name: github
+  repo: Gunkov/synevyr # репозиторій на GitHub
+  branch: main
+  auth_type: pkce # Авторизація без бекенду через GitHub OAuth PKCE
+
+# Папка для завантаження зображень
+media_folder: "public/img"
+public_folder: "/img"
+
+# Мова панелі керування
+locale: "uk"
+
+# Візуальні колекції контенту
+collections:
+  # 1. Загальні контакти та інформація про будинок
+  - name: "settings"
+    label: "⚙️ Налаштування сайту"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "site_info"
+        label: "Головна інформація та контакти"
+        file: "src/data/site_content.json"
+        fields:
+          - { label: "Назва ОСББ", name: "name", widget: "string", default: "ОСББ \"Синевирій\"" }
+          - { label: "Повна адреса", name: "address", widget: "string", default: "02140, Київ, вулиця Бориса Гмирі, будинок 777" }
+          - { label: "Email", name: "email", widget: "string", default: "sin@ukr.net" }
+          - { label: "Основні телефони (через кому)", name: "phones", widget: "string", default: "044 000 11 22, 067 000 11 22" }
+          - { label: "Телефон аварійної служби", name: "phone_emergency", widget: "string", default: "044 587 86 40" }
+          - { label: "Телефон ліфтової служби", name: "phone_elevator", widget: "string", default: "044 573 17 48" }
+          - { label: "Графік роботи", name: "schedule", widget: "string", default: "Графік роботи: Пн – Пт з 09:00 до 18:00, перерва з 13:00 до 14:00" }
+          - { label: "Назва Viber-групи", name: "viber_group", widget: "string", default: "Актив Гмирі 777" }
+          - { label: "Дата заснування будинку", name: "foundation_date", widget: "string", default: "24 серпня 2024 року" }
+          - { label: "Загальна житлова площа (м²)", name: "stat_area", widget: "string", default: "13540" }
+          - { label: "Кількість мешканців", name: "stat_residents", widget: "string", default: "650" }
+          - { label: "Кількість квартир", name: "stat_apartments", widget: "string", default: "294" }
+
+  # 2. Новини
+  - name: "news"
+    label: "📰 Новини"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок новини", name: "title", widget: "string" }
+      - { label: "Дата публікації", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", time_format: false }
+      - { label: "Короткий опис (цитата на головній)", name: "excerpt", widget: "text" }
+      - { label: "Повний текст статті", name: "body", widget: "markdown" }
+
+  # 3. Оголошення
+  - name: "announcements"
+    label: "📢 Оголошення"
+    folder: "src/content/announcements"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Тип іконки (Червона / Звичайна)", name: "icon_type", widget: "select", options: ["red", "normal"], default: "normal" }
+      - { label: "Текст оголошення", name: "body", widget: "markdown" }
+
+  # 4. Фотогалерея
+  - name: "gallery"
+    label: "🖼️ Фотогалерея"
+    delete: false
+    files:
+      - name: "photos"
+        label: "Фотографії будинку"
+        file: "src/data/gallery_items.json"
+        fields:
+          - label: "Список фото"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Зображення", name: "src", widget: "image" }
+              - { label: "Підпис", name: "alt", widget: "string", required: false }

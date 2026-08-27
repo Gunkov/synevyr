@@ -1,0 +1,30 @@
+/* ===== Footer ===== */
+.site-footer {
+  background-color: var(--c-dark);
+  border-top: 2px solid var(--c-steel);
+}
+
+.footer-inner {
+  text-align: center;
+  padding-top: 36.5px;
+  padding-bottom: 36.5px;
+}
+
+.footer-text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-site-title {
+  display: inline-block;
+}
+
+@media (max-width: 544px) {
+  .footer-inner {
+    padding-top: 27px;
+    padding-bottom: 27px;
+  }
+}

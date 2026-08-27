@@ -1,0 +1,58 @@
+---
+import BandSection from '../ui/BandSection.astro';
+import { BAND_INFORMATSIYA, ANNOUNCEMENTS } from '../../data/content';
+
+const [left, ...right] = ANNOUNCEMENTS;
+---
+
+<BandSection id={BAND_INFORMATSIYA.id} title={BAND_INFORMATSIYA.title} desc={BAND_INFORMATSIYA.desc} />
+
+<section class="sec-ann">
+  <div class="inner">
+    <div class="cols ann-row">
+      <div class="ann-col-left">
+        {
+          left && (
+            <div class="card-white ann-card-pad infobox-left">
+              <div class="infobox-icon-wrap">
+                <img
+                  src={left.icon}
+                  alt="Важлива інформація"
+                  width="60"
+                  height="73"
+                  loading="lazy"
+                  class="ann-img"
+                />
+              </div>
+              <div class="infobox-body">
+                <h3 class="infobox-title-bold">{left.title}</h3>
+                <p class="infobox-text" set:html={left.html} />
+              </div>
+            </div>
+          )
+        }
+      </div>
+      <div class="ann-col-right">
+        {
+          right.map((a) => (
+            <div class="card-white ann-card-pad infobox-left ann-mb">
+              <div class="infobox-icon-wrap">
+                <img src={a.icon} alt="Інформація" width="60" height="73" loading="lazy" class="ann-img" />
+              </div>
+              <div class="infobox-body">
+                <h3 class="infobox-title-bold">{a.title}</h3>
+                <p class="infobox-text" set:html={a.html} />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .ann-mb + .ann-mb {
+    margin-top: 20px;
+  }
+</style>

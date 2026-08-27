@@ -1,0 +1,27 @@
+:root {
+  --c-page-bg: #ebebeb;
+  --c-brand: #2b6cb0;
+  --c-link: #2b6cb0;
+  --c-accent: #e76f51;
+  --c-btn-hover: #d35b3d;
+  --c-dark: #132845;
+  --grad-blue: linear-gradient(90deg, #2b6cb0 0%, #183b6b 100%);
+  --grad-light: linear-gradient(180deg, #edf4fa 0%, #ffffff 100%);
+  --grad-stat: linear-gradient(180deg, #ffffff 0%, #edf4fa 100%);
+  --c-mission-bg: #edf4fa;
+  --c-gray-bg: #edf4fa;
+  --c-tabs-bg: #f4f8fb;
+  --c-tabs-border: #e2edf5;
+  --c-tabs-active: #edf4fa;
+  --c-teal: #1e4e8c;
+  --c-green: #38a169;
+  --c-steel: #507d9f;
+  --c-text: rgba(1, 22, 39, 0.75);
+  --c-muted: #798d9c;
+  --c-header-border: #eae9e9;
+  --c-input-bg: #fafafa;
+  --c-input-border: #e2edf5;
+  --w-box: 1265px;
+  --w-inner: 1200px;
+  --font-body: 'Roboto', sans-serif;
+}

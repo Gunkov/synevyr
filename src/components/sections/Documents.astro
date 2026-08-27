@@ -1,0 +1,13 @@
+---
+import BandSection from '../ui/BandSection.astro';
+import Tabs from '../ui/Tabs.astro';
+import { BAND_DOKUMENTY, DOC_TABS } from '../../data/content';
+---
+
+<BandSection id={BAND_DOKUMENTY.id} title={BAND_DOKUMENTY.title} desc={BAND_DOKUMENTY.desc} />
+
+<section class="sec-tabs">
+  <div class="inner">
+    <Tabs tabs={DOC_TABS} />
+  </div>
+</section>

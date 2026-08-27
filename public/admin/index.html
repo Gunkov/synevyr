@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Панель керування | ОСББ «Синевирій»</title>
+  </head>
+  <body>
+    <!-- Decap CMS Core Script -->
+    <script src="https://unpkg.com/decap-cms@^3.1.10/dist/decap-cms.js"></script>
+    <script>
+      // Ukrainian UI customization
+      if (window.CMS) {
+        CMS.registerLocale('uk', {
+          auth: {
+            login: 'Увійти',
+            loggingIn: 'Вхід...',
+            loginWithGitHub: 'Увійти через GitHub',
+            loginWithNetlifyIdentity: 'Увійти з паролем',
+            errors: {
+              badCredentials: 'Невірний логін або пароль.',
+            },
+          },
+          app: {
+            header: {
+              content: 'Контент',
+              media: 'Медіафайли',
+              quickAdd: 'Швидке додавання',
+            },
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+---
+import { FORM } from '../../data/content';
+
+const f = FORM.fields;
+---
+
+<form class="cform" novalidate data-fake-submit>
+  <p>
+    <label>
+      {f.name}
+      <span class="field-wrap"><input type="text" name="name" required aria-required="true" /></span>
+    </label>
+  </p>
+  <p>
+    <label>
+      {f.email}
+      <span class="field-wrap"><input type="email" name="email" required aria-required="true" /></span>
+    </label>
+  </p>
+  <p>
+    <label>
+      {f.phone}
+      <span class="field-wrap"><input type="tel" name="phone" /></span>
+    </label>
+  </p>
+  <p>
+    <label>
+      {f.message}
+      <span class="field-wrap"><textarea name="message" required aria-required="true"></textarea></span>
+    </label>
+  </p>
+  <p>
+    <button type="submit" class="btn-pill btn-submit">{FORM.submit}</button>
+  </p>
+  <div class="form-response" role="status" aria-live="polite"></div>
+</form>

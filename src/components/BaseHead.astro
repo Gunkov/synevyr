@@ -1,0 +1,31 @@
+---
+import { SITE } from '../data/content';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = SITE.title, description = SITE.description } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="icon" href="/favicon-32x32.jpg" sizes="32x32" type="image/jpeg" />
+<link rel="icon" href="/favicon-192.jpg" sizes="192x192" type="image/jpeg" />
+<link rel="apple-touch-icon" href="/favicon-192.jpg" />
+<meta name="generator" content={Astro.generator} />
+<meta property="og:locale" content="uk_UA" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={Astro.url.href} />
+<meta property="og:site_name" content="ОСББ «Синевирій»" />
+<meta property="og:image" content={new URL('/img/image.jpg', Astro.site)} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap"
+  rel="stylesheet"
+/>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  id?: string;
+  title: string;
+  desc?: string;
+}
+const { id, title, desc } = Astro.props;
+---
+
+<section class="sec-band" id={id}>
+  <div class="inner">
+    <div class="cols valign-center row-band">
+      <div class="col col-h">
+        <h2 class="band-title">{title}</h2>
+        {desc && <p class="band-desc">{desc}</p>}
+      </div>
+      <div class="col col-empty"></div>
+    </div>
+  </div>
+</section>

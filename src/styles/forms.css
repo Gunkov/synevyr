@@ -1,0 +1,81 @@
+/* ===== Contact form (CF7-like) ===== */
+.cform {
+  text-align: left;
+}
+
+.cform p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.cform label {
+  display: block;
+  color: var(--c-steel);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.field-wrap {
+  display: block;
+}
+
+.cform input[type='text'],
+.cform input[type='email'],
+.cform input[type='tel'],
+.cform textarea {
+  width: 100%;
+  background-color: var(--c-input-bg);
+  border: 1px solid var(--c-input-border);
+  color: var(--c-muted);
+  font-size: 15px;
+  padding: 10px;
+  margin-top: 5px;
+  line-height: normal;
+  transition: border-color 0.2s linear;
+}
+
+.cform textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.cform input:focus,
+.cform textarea:focus {
+  outline: none;
+  border-color: var(--c-green, #52b788);
+  background-color: #fff;
+  color: var(--c-text);
+}
+
+.cform .not-valid {
+  border-color: var(--c-error);
+  background-color: #fff;
+}
+
+.form-tip {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--c-error);
+}
+
+.form-response {
+  display: none;
+  border: 2px solid transparent;
+  padding: 0.2em 1em;
+  margin-top: 2em;
+  font-size: 15px;
+}
+
+.form-response.visible {
+  display: block;
+}
+
+.form-response.sent {
+  border-color: #46b450;
+}
+
+.form-response.failed {
+  border-color: #dc3232;
+}

@@ -1,0 +1,17 @@
+---
+import NewsGrid from '../ui/NewsGrid.astro';
+import type { NewsItem } from '../../data/news';
+
+interface Props {
+  items: NewsItem[];
+}
+const { items } = Astro.props;
+---
+
+<section class="sec-news" id="novyny">
+  <div class="news-card card-white">
+    <h3 class="teal-heading news-heading"><strong>НОВИНИ</strong></h3>
+    <div class="rss-sep"></div>
+    <NewsGrid items={items} />
+  </div>
+</section>

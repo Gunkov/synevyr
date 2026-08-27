@@ -1,0 +1,38 @@
+---
+import IconList from '../ui/IconList.astro';
+import ContactForm from '../ui/ContactForm.astro';
+import { CONTACTS } from '../../data/content';
+---
+
+<section class="sec-contacts" id="kontakty">
+  <div class="inner">
+    <h2 class="contacts-heading">{CONTACTS.heading}</h2>
+    <div class="contacts-sep"></div>
+
+    <div class="cols contacts-row">
+      <div class="contacts-col-info">
+        <h3 class="contacts-list-title">{CONTACTS.listTitle}</h3>
+        <div class="spacer spacer-20"></div>
+        <IconList items={CONTACTS.items} />
+        <div class="spacer spacer-37"></div>
+        <p class="schedule-text">{CONTACTS.scheduleText}</p>
+        <div class="spacer spacer-20"></div>
+        <iframe
+          class="map-frame"
+          src={CONTACTS.mapSrc}
+          width="100%"
+          height={CONTACTS.mapHeight}
+          style={`border:0;height:${CONTACTS.mapHeight}px;`}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          title="Карта розташування ОСББ Придніпровське"></iframe>
+      </div>
+      <div class="contacts-col-form">
+        <h3 class="contacts-list-title">Надіслати повідомлення або запитання</h3>
+        <div class="spacer spacer-20"></div>
+        <ContactForm />
+      </div>
+    </div>
+  </div>
+</section>

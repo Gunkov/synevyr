@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Welcome from '../components/sections/Welcome.astro';
+import News from '../components/sections/News.astro';
+import AboutOsbb from '../components/sections/AboutOsbb.astro';
+import Announcements from '../components/sections/Announcements.astro';
+import Documents from '../components/sections/Documents.astro';
+import GallerySection from '../components/sections/GallerySection.astro';
+import Contacts from '../components/sections/Contacts.astro';
+import { fetchNews } from '../data/news';
+
+const news = await fetchNews();
+---
+
+<BaseLayout>
+  <Hero />
+  <Welcome />
+  <News items={news} />
+  <AboutOsbb />
+  <Announcements />
+  <Documents />
+  <GallerySection />
+  <Contacts />
+</BaseLayout>

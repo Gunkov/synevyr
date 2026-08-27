@@ -1,0 +1,17 @@
+---
+import { BAND_GALEREYA } from '../../data/content';
+import BandSection from '../ui/BandSection.astro';
+import GalleryGrid from '../ui/GalleryGrid.astro';
+---
+
+<BandSection id={BAND_GALEREYA.id} title={BAND_GALEREYA.title} desc={BAND_GALEREYA.desc} />
+
+<section class="sec-gallery">
+  <div class="gallery-card card-white">
+    <h3 class="teal-heading gallery-heading">ФОТОГАЛЕРЕЯ</h3>
+    <div class="gallery-sep"></div>
+    <div class="gallery-card-inner">
+      <GalleryGrid />
+    </div>
+  </div>
+</section>

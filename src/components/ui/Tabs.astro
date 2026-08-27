@@ -1,0 +1,54 @@
+---
+import PillLink from './PillLink.astro';
+import type { DocCard, DocTab } from '../../data/content';
+
+interface Props {
+  tabs: DocTab[];
+}
+const { tabs } = Astro.props;
+---
+
+<div class="tabs" data-tabs>
+  <div class="tabs-nav" role="tablist">
+    {
+      tabs.map((tab, i) => (
+        <span
+          class:list={['tabs-item', { active: i === 0 }]}
+          role="tab"
+          tabindex={i === 0 ? 0 : -1}
+          data-tab-index={i}
+        >
+          <span class="tabs-item-title">{tab.label}</span>
+        </span>
+      ))
+    }
+  </div>
+  <div class="tabs-body">
+    {
+      tabs.map((tab: DocTab, i: number) => (
+        <div class:list={['tabs-panel', { active: i === 0 }]}>
+          <div class="cols row-docs">
+            {(tab.cards as DocCard[]).map((card) => (
+              <div class="col doc-card card-white">
+                <div class="doc-card-inner infobox-center">
+                  <img
+                    src="/img/dokumenty-ikonka.jpg"
+                    alt="Документи, іконка"
+                    width="120"
+                    height="96"
+                    loading="lazy"
+                    class="doc-img"
+                  />
+                  <h3 class="infobox-title doc-title" set:html={card.title} />
+                  <PillLink href={card.href} target={card.target}>
+                    ПЕРЕГЛЯНУТИ
+                  </PillLink>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

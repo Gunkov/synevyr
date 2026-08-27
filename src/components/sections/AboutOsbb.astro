@@ -1,0 +1,57 @@
+---
+import PillLink from '../ui/PillLink.astro';
+import StatCard from '../ui/StatCard.astro';
+import { ABOUT_OSBB, MISSION, HOUSE, STATS, CTA } from '../../data/content';
+---
+
+<section class="sec-about" id="pro-osbb">
+  <div class="inner">
+    <div class="cols valign-center about-row">
+      <div class="col col-h">
+        <h2 class="band-title">{ABOUT_OSBB.title}</h2>
+      </div>
+      <div class="col col-text">
+        <p class="about-text">{ABOUT_OSBB.text}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-mission">
+  <div class="inner">
+    <div class="cols mission-row">
+      <div class="col mission-col-card">
+        <div class="card-white mission-card-pad infobox-center">
+          <img
+            src="/img/meta-osbb.jpg"
+            alt="Мета ОСББ"
+            width="200"
+            height="200"
+            loading="lazy"
+            class="infobox-img"
+          />
+          <h3 class="infobox-title infobox-title-mb15"><strong>{MISSION.title}</strong></h3>
+          <p class="infobox-desc">{MISSION.text}</p>
+        </div>
+      </div>
+      <div class="col mission-col-house">
+        <h3 class="teal-heading house-heading"><strong>{HOUSE.title}</strong></h3>
+        <p class="house-text" set:html={HOUSE.html} />
+      </div>
+    </div>
+
+    <div class="cols stats-row">
+      {STATS.map((s) => <StatCard number={s.number} label={s.label} />)}
+    </div>
+
+    <div class="cols cta-row">
+      <div class="cta-content">
+        <h2 class="cta-title">{CTA.title}</h2>
+        <p class="cta-text">{CTA.text}</p>
+      </div>
+      <div class="cta-link">
+        <PillLink href={CTA.href}>{CTA.button}</PillLink>
+      </div>
+    </div>
+  </div>
+</section>
