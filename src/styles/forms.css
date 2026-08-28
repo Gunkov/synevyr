@@ -1,18 +1,19 @@
-/* ===== Contact form (CF7-like) ===== */
+/* ===== Contact form (CF7-like with Real Submit) ===== */
 .cform {
   text-align: left;
 }
 
 .cform p {
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 1.25em;
 }
 
 .cform label {
   display: block;
-  color: var(--c-steel);
+  color: var(--c-steel, #88b4d8);
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .field-wrap {
@@ -26,46 +27,50 @@
   width: 100%;
   background-color: var(--c-input-bg);
   border: 1px solid var(--c-input-border);
-  color: var(--c-muted);
+  color: var(--c-text);
   font-size: 15px;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 6px;
   line-height: normal;
-  transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear, box-shadow 0.2s linear;
 }
 
 .cform textarea {
-  height: 150px;
+  height: 140px;
   resize: vertical;
 }
 
 .cform input:focus,
 .cform textarea:focus {
   outline: none;
-  border-color: var(--c-green, #52b788);
+  border-color: var(--c-icon-bright, #38bdf8);
   background-color: #fff;
   color: var(--c-text);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
 }
 
 .cform .not-valid {
-  border-color: var(--c-error);
+  border-color: #ef4444;
   background-color: #fff;
 }
 
 .form-tip {
   display: block;
-  margin-top: 3px;
+  margin-top: 5px;
   font-size: 12px;
-  font-weight: 400;
-  color: var(--c-error);
+  font-weight: 500;
+  color: #fca5a5;
 }
 
 .form-response {
   display: none;
-  border: 2px solid transparent;
-  padding: 0.2em 1em;
-  margin-top: 2em;
+  padding: 14px 18px;
+  margin-top: 1.5em;
   font-size: 15px;
+  line-height: 1.5;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
 .form-response.visible {
@@ -73,9 +78,19 @@
 }
 
 .form-response.sent {
-  border-color: #46b450;
+  background-color: rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--c-icon-bright, #38bdf8);
+  color: #e0f2fe;
 }
 
 .form-response.failed {
-  border-color: #dc3232;
+  background-color: rgba(239, 68, 68, 0.18);
+  border: 1px solid #ef4444;
+  color: #fee2e2;
+}
+
+.form-response.loading {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #f8fafc;
 }

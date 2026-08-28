@@ -4,29 +4,32 @@ import { FORM } from '../../data/content';
 const f = FORM.fields;
 ---
 
-<form class="cform" novalidate data-fake-submit>
+<form class="cform" novalidate action="https://formsubmit.co/ajax/gunkov@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="Нове звернення з сайту ОСББ «Синевирій»" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
   <p>
     <label>
       {f.name}
-      <span class="field-wrap"><input type="text" name="name" required aria-required="true" /></span>
+      <span class="field-wrap"><input type="text" name="name" required aria-required="true" placeholder="Іван Іванов" /></span>
     </label>
   </p>
   <p>
     <label>
       {f.email}
-      <span class="field-wrap"><input type="email" name="email" required aria-required="true" /></span>
+      <span class="field-wrap"><input type="email" name="email" required aria-required="true" placeholder="name@example.com" /></span>
     </label>
   </p>
   <p>
     <label>
       {f.phone}
-      <span class="field-wrap"><input type="tel" name="phone" /></span>
+      <span class="field-wrap"><input type="tel" name="phone" placeholder="+380 XX XXX XX XX" /></span>
     </label>
   </p>
   <p>
     <label>
       {f.message}
-      <span class="field-wrap"><textarea name="message" required aria-required="true"></textarea></span>
+      <span class="field-wrap"><textarea name="message" required aria-required="true" placeholder="Ваше запитання або пропозиція..."></textarea></span>
     </label>
   </p>
   <p>

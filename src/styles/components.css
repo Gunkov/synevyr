@@ -254,7 +254,8 @@
 .icon-list svg {
   width: 20px;
   height: 20px;
-  fill: var(--c-steel);
+  fill: var(--c-icon-bright, #38bdf8);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
   margin-right: 15px;
   flex-shrink: 0;
   position: relative;
@@ -262,19 +263,20 @@
 }
 
 .icon-list .icon-label {
-  color: #fff;
+  color: #f8fafc;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .icon-list a {
-  color: #fff;
+  color: #f8fafc;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .icon-list a:hover {
-  color: var(--c-accent, #e76f51);
+  color: var(--c-icon-bright, #38bdf8);
   text-decoration: underline;
 }
 

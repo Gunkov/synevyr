@@ -89,12 +89,13 @@
     });
   }
 
-  /* Contact form validation (CF7-like, no backend) */
+  /* Contact form submission via FormSubmit AJAX */
   var form = document.querySelector('.cform');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var response = form.querySelector('.form-response');
+      var submitBtn = form.querySelector('button[type="submit"]');
       var valid = true;
 
       Array.prototype.forEach.call(form.querySelectorAll('.form-tip'), function (tip) {
@@ -126,20 +127,51 @@
       }
       if (message && !message.value.trim()) addTip(message, "Поле обов'язкове.");
 
+      if (!valid) return;
+
       if (response) {
-        response.classList.add('visible');
-        if (valid) {
-          response.classList.remove('failed');
-          response.classList.add('sent');
-          response.textContent = 'Дякуємо за ваше повідомлення. Воно було успішно відправлене.';
-          form.reset();
-        } else {
-          response.classList.remove('sent');
-          response.classList.add('failed');
-          response.textContent =
-            'Виникла помилка під час відправлення форми. Перевірте заповнені поля та спробуйте ще раз.';
-        }
+        response.className = 'form-response visible loading';
+        response.textContent = 'Відправка повідомлення...';
       }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+      }
+
+      var formData = new FormData(form);
+      var endpoint = form.getAttribute('action') || 'https://formsubmit.co/ajax/gunkov@gmail.com';
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+        if (response) {
+          response.className = 'form-response visible sent';
+          response.textContent = 'Дякуємо за ваше повідомлення! Воно було успішно відправлене на пошту адміністрації.';
+          form.reset();
+        }
+      })
+      .catch(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+        if (response) {
+          response.className = 'form-response visible failed';
+          response.textContent = 'Виникла помилка під час відправлення форми. Перевірте з’єднання або зв’яжіться телефоном.';
+        }
+      });
     });
   }
 })();

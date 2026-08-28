@@ -1,19 +1,19 @@
 /* ===== S1 Hero ===== */
 .sec-hero {
-  background-color: var(--c-dark);
-  padding-top: 40px;
-  padding-right: 40px;
-  padding-bottom: 20px;
-  padding-left: 40px;
+  background-image: var(--grad-hero);
+  background-color: #0ea5e9;
+  padding: 35px 40px;
 }
 
 .hero-figure img {
   display: block;
   width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .hero-spacer {
-  height: 50px;
+  height: 20px;
 }
 
 .hero-caption {
@@ -373,7 +373,7 @@
 }
 
 .contacts-sep {
-  border-top: 4px solid var(--c-steel);
+  border-top: 4px solid var(--c-icon-bright, #38bdf8);
   width: 100%;
 }
 
