@@ -1,22 +1,15 @@
 /* ===== S1 Hero ===== */
 .sec-hero {
-  padding: 30px 40px 15px;
-  background-color: var(--c-page-bg, #ebebeb);
-}
-
-.sec-hero .inner {
   background-image: var(--grad-hero);
   background-color: var(--c-brand, #2b6cb0);
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(43, 108, 176, 0.15);
+  padding: 40px 50px;
 }
 
 .hero-figure img {
   display: block;
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .hero-spacer {
@@ -613,16 +606,11 @@
 @media (max-width: 767px) {
   /* S1 */
   .sec-hero {
-    padding: 15px 12px 0;
-  }
-
-  .sec-hero .inner {
-    padding: 14px;
-    border-radius: 14px;
+    padding: 20px 20px 10px;
   }
 
   .hero-figure img {
-    border-radius: 8px;
+    border-radius: 10px;
   }
 
   /* S2 */
