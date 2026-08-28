@@ -1,7 +1,7 @@
 /* ===== S1 Hero ===== */
 .sec-hero {
   background-image: var(--grad-hero);
-  background-color: #0ea5e9;
+  background-color: var(--c-brand, #2b6cb0);
   padding: 35px 40px;
 }
 

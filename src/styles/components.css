@@ -254,8 +254,8 @@
 .icon-list svg {
   width: 20px;
   height: 20px;
-  fill: var(--c-icon-bright, #38bdf8);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  fill: var(--c-icon-yellow, #facc15);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
   margin-right: 15px;
   flex-shrink: 0;
   position: relative;

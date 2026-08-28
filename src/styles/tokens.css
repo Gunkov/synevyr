@@ -5,7 +5,7 @@
   --c-accent: #e76f51;
   --c-btn-hover: #d35b3d;
   --c-dark: #1e3a5f;
-  --grad-hero: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
+  --grad-hero: linear-gradient(135deg, #38bdf8 0%, #2b6cb0 100%);
   --grad-blue: linear-gradient(90deg, #2b6cb0 0%, #183b6b 100%);
   --grad-light: linear-gradient(180deg, #edf4fa 0%, #ffffff 100%);
   --grad-stat: linear-gradient(180deg, #ffffff 0%, #edf4fa 100%);
@@ -16,6 +16,7 @@
   --c-tabs-active: #edf4fa;
   --c-teal: #1e4e8c;
   --c-green: #38a169;
+  --c-icon-yellow: #facc15;
   --c-icon-bright: #38bdf8;
   --c-steel: #88b4d8;
   --c-text: rgba(1, 22, 39, 0.75);
